@@ -27,10 +27,14 @@ public class FeedbackManager {
 
 	
 	public void reminder(String userID) {
-		
+//		System.out.println(date);
 		List<String> emptyCategory = new ArrayList<>();
 		String[] categories = {"Hydration", "Exercise", "Alcohol", "Sleep", "Fruit & Veg", "Calorie", "Smoking"};
 		String[] healthInfo = getHealthInfo(userID);
+		
+		if(healthInfo.length == 0) {
+			System.out.println("Reminder: please input your today's health date.");
+		}
 		
 		for(int i = 2; i < healthInfo.length; i++) {
 			if(healthInfo[i].equals("-1")) {
@@ -39,7 +43,7 @@ public class FeedbackManager {
 		}
 		if(emptyCategory.size() > 0 ) {
 			String cate = String.join(", ", emptyCategory);
-			System.out.println("Please input data for the following category: " + cate);
+			System.out.println("Please your input health data for the following category: " + cate);
 		}
 					
 	}
