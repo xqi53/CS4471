@@ -1,5 +1,5 @@
 # 
-This is a class project.__
+This is a class project.<br />
 Problem Definition__
 Many people are looking to improve their health in a variety of different ways yet struggle to consistently meet healthy standards. They have no way of keeping track of their progress over time and find that they need help to develop these healthy habits and motivate them towards their goals.__
 Project Objective__
