@@ -83,14 +83,22 @@ public class UserMainMenu {
 					category = categoryConsts[categoryInt];
 					System.out.println(dataRecordTitle);
 					System.out.println("\t\tPlease enter the amount in " + categoryUnitConsts[categoryInt]);
-					userInput = scanner.nextLine();
-					try {
-						float userInputFloat = Float.parseFloat(userInput);
-						DataRecorder dataRecorder = new DataRecorder();
-						dataRecorder.addNewEntry(username, category, userInputFloat); 
-						break;
-					} catch (NumberFormatException e) {
-						break;
+					while(true) {
+						try {
+							userInput = scanner.nextLine();
+							float userInputFloat = Float.parseFloat(userInput);
+							if(userInputFloat<0) {
+								System.out.println("\t\tYour input is invalid, please try again");
+								System.out.println("\t\tPlease enter the amount in " + categoryUnitConsts[categoryInt]);
+							} else {
+								DataRecorder dataRecorder = new DataRecorder();
+								dataRecorder.addNewEntry(username, category, userInputFloat); 
+								break;
+							}
+						} catch (NumberFormatException e) {
+							System.out.println("\t\tYour input is invalid, please try again");
+							System.out.println("\t\tPlease enter the amount in " + categoryUnitConsts[categoryInt]);
+						}
 					}
 				} else if(userInputInt == 0) {
 					break;
@@ -122,19 +130,30 @@ public class UserMainMenu {
 					clearScreen();
 					System.out.println(setGoalTitle);
 					System.out.println("\t\tPlease enter the amount in " + categoryUnitConsts[categoryInt]);
-					userInput = scanner.nextLine();
-					try {
-						float userInputFloat = Float.parseFloat(userInput);
-						GoalSetter goalSetter = new GoalSetter();
-						goalSetter.replaceGoalInFile(username, category, userInputFloat);  
-						break;
-					} catch (NumberFormatException e) {
-						break;
+					while(true) {
+						try {
+							userInput = scanner.nextLine();
+							float userInputFloat = Float.parseFloat(userInput);
+							if(userInputFloat<0) {
+								System.out.println("\t\tYour input is invalid, please try again");
+								System.out.println("\t\tPlease enter the amount in " + categoryUnitConsts[categoryInt]);
+
+							} else {
+								GoalSetter goalSetter = new GoalSetter();
+								goalSetter.replaceGoalInFile(username, category, userInputFloat); 
+								break;
+							}
+						} catch (NumberFormatException e) {
+							System.out.println("\t\tYour input is invalid, please try again");
+							System.out.println("\t\tPlease enter the amount in " + categoryUnitConsts[categoryInt]);
+
+						}
 					}
 				} else if(userInputInt == 0) {
 					break;
 				}
 			} catch (NumberFormatException e) {
+				System.out.println("\t\tYour input is invalid, please try again");
 			}
 		}
 	}

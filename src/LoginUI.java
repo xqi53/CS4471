@@ -224,9 +224,8 @@ public class LoginUI {
 				if(credMan.verifyUser(username, password))
 				{
 					System.out.println("Successful User Login.");
-//					NOTE: UNCOMMENT THESE TWO LINES AND PROPERLY ATTACH THEM TO THE USER MAIN MENU WHEN CREATED, DELETE THIS AFTER
-//					UserMainMenu mainUI = new UserMainMenu();
-//					mainUI.mainMenu();
+					UserMainMenu mainUI = new UserMainMenu(username);
+					mainUI.mainMenu();
 				}
 				else
 				{
@@ -282,9 +281,8 @@ public class LoginUI {
 				if(credMan.verifyAdmin(username, password))
 				{
 					System.out.println("Successful Admin Login.");
-//					NOTE: UNCOMMENT THESE TWO LINES AND PROPERLY ATTACH THEM TO THE ADMIN MAIN MENU WHEN CREATED, DELETE THIS AFTER
-//					AdminMainMenu mainUI = new AdminMainMenu();
-//					mainUI.mainMenu();
+					AdminMainMenu mainUI = new AdminMainMenu();
+					mainUI.mainMenu();
 				}
 				else
 				{
