@@ -60,15 +60,14 @@ public class FeedbackManager {
 			System.out.println("Please input all health info first");
 		}
 		else {
-			int temp;
-			System.out.println(category);
+			float temp;
 			switch(category) {
 				case "hydration":
 					
 					// Hydration
-					if(Integer.parseInt(healthInfo[2]) < Integer.parseInt(goals[1])) {
+					if(Float.parseFloat(healthInfo[2]) < Float.parseFloat(goals[1])) {
 						achieveAllGoals = false;
-						temp = Integer.parseInt(goals[1]) - Integer.parseInt(healthInfo[2]);
+						temp = Float.parseFloat(goals[1]) - Float.parseFloat(healthInfo[2]);
 						System.out.println("You need " + temp + " more cups of water to reach your goal for hydration.");
 					}
 					else {
@@ -77,9 +76,9 @@ public class FeedbackManager {
 					break;
 				case "exercise":
 					// Exercise
-					if(Integer.parseInt(healthInfo[3]) < Integer.parseInt(goals[2])) {
+					if(Float.parseFloat(healthInfo[3]) < Float.parseFloat(goals[2])) {
 						achieveAllGoals = false;
-						temp = Integer.parseInt(goals[2]) - Integer.parseInt(healthInfo[3]);
+						temp = Float.parseFloat(goals[2]) - Float.parseFloat(healthInfo[3]);
 						System.out.println("You need " + temp + " more hours exercise to reach your goal for exercise.");
 					}
 					else {
@@ -88,9 +87,9 @@ public class FeedbackManager {
 					break;
 				case "alcohol":
 					// alcohol
-					if(Integer.parseInt(healthInfo[4]) > Integer.parseInt(goals[3])) {
+					if(Float.parseFloat(healthInfo[4]) > Float.parseFloat(goals[3])) {
 						achieveAllGoals = false;
-						temp = Integer.parseInt(healthInfo[4]) - Integer.parseInt(goals[3]);
+						temp = Float.parseFloat(healthInfo[4]) - Float.parseFloat(goals[3]);
 						System.out.println("You need to drink " + temp + " less cups of alcohol to reach your goal for alcohol.");
 					}
 					else {
@@ -99,9 +98,9 @@ public class FeedbackManager {
 					break;
 				case "sleep":
 					// sleep
-					if(Integer.parseInt(healthInfo[5]) < Integer.parseInt(goals[4])) {
+					if(Float.parseFloat(healthInfo[5]) < Float.parseFloat(goals[4])) {
 						achieveAllGoals = false;
-						temp = Integer.parseInt(goals[4]) - Integer.parseInt(healthInfo[5]);
+						temp = Float.parseFloat(goals[4]) - Float.parseFloat(healthInfo[5]);
 						System.out.println("You need " + temp + " more hours of sleep to reach your goal for sleep quality.");
 					}
 					else {
@@ -110,9 +109,9 @@ public class FeedbackManager {
 					break;
 				case "fruit&veggie":
 					// fruit & veg
-					if(Integer.parseInt(healthInfo[6]) < Integer.parseInt(goals[5])) {
+					if(Float.parseFloat(healthInfo[6]) < Float.parseFloat(goals[5])) {
 						achieveAllGoals = false;
-						temp = Integer.parseInt(goals[5]) - Integer.parseInt(healthInfo[6]);
+						temp = Float.parseFloat(goals[5]) - Float.parseFloat(healthInfo[6]);
 						System.out.println("You need " + temp + " more servings fruit & veg to reach your goal for fruit & veg.");
 					}
 					else {
@@ -121,9 +120,9 @@ public class FeedbackManager {
 					break;
 				case "calorie":
 					// calorie
-					if(Integer.parseInt(healthInfo[7]) > Integer.parseInt(goals[6])) {
+					if(Float.parseFloat(healthInfo[7]) > Float.parseFloat(goals[6])) {
 						achieveAllGoals = false;
-						temp = Integer.parseInt(healthInfo[7]) - Integer.parseInt(goals[6]);
+						temp = Float.parseFloat(healthInfo[7]) - Float.parseFloat(goals[6]);
 						System.out.println("You need to take " + temp + " less calories to reach your goal for calorie.");
 					}
 					else {
@@ -132,9 +131,9 @@ public class FeedbackManager {
 					break;
 				case "smoking":
 					// smoking
-					if(Integer.parseInt(healthInfo[8]) > Integer.parseInt(goals[7])) {
+					if(Float.parseFloat(healthInfo[8]) > Float.parseFloat(goals[7])) {
 						achieveAllGoals = false;
-						temp = Integer.parseInt(healthInfo[8]) - Integer.parseInt(goals[7]);
+						temp = Float.parseFloat(healthInfo[8]) - Float.parseFloat(goals[7]);
 						System.out.println("You need to smoke " + temp + " less cigarettes to reach your goal for smoking.");
 					}
 					else {
@@ -143,9 +142,6 @@ public class FeedbackManager {
 					break;
 			}
 			
-//			if(achieveAllGoals) {
-//				System.out.println("Congratulations, you have reached all your daily goals!");
-//			}
 			
 		}
 		
