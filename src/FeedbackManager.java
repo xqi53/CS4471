@@ -29,7 +29,7 @@ public class FeedbackManager {
 	public void reminder(String userID) {
 //		System.out.println(date);
 		List<String> emptyCategory = new ArrayList<>();
-		String[] categories = {"Hydration", "Exercise", "Alcohol", "Sleep", "Fruit & Veg", "Calorie", "Smoking"};
+		String[] categories = {"hydration", "exercise", "alcohol", "sleep", "fruit&veggie", "calorie", "smoking"};
 		String[] healthInfo = getHealthInfo(userID);
 		
 		if(healthInfo.length == 0) {
@@ -50,7 +50,7 @@ public class FeedbackManager {
 				
 		
 	
-	public void feedback(String userID) {
+	public void feedback(String userID, String category) {
 		String[] healthInfo = getHealthInfo(userID);
 		String[] goals = getGoals(userID);
 		
@@ -61,58 +61,91 @@ public class FeedbackManager {
 		}
 		else {
 			int temp;
-			// Hydration
-			if(Integer.parseInt(healthInfo[2]) < Integer.parseInt(goals[1])) {
-				achieveAllGoals = false;
-				temp = Integer.parseInt(goals[1]) - Integer.parseInt(healthInfo[2]);
-				System.out.println("You need " + temp + " more cups of water to reach your goal for hydration.");
+			System.out.println(category);
+			switch(category) {
+				case "hydration":
+					
+					// Hydration
+					if(Integer.parseInt(healthInfo[2]) < Integer.parseInt(goals[1])) {
+						achieveAllGoals = false;
+						temp = Integer.parseInt(goals[1]) - Integer.parseInt(healthInfo[2]);
+						System.out.println("You need " + temp + " more cups of water to reach your goal for hydration.");
+					}
+					else {
+						System.out.println("Congratulations, you have reached your daily on hydration!");
+					}
+					break;
+				case "exercise":
+					// Exercise
+					if(Integer.parseInt(healthInfo[3]) < Integer.parseInt(goals[2])) {
+						achieveAllGoals = false;
+						temp = Integer.parseInt(goals[2]) - Integer.parseInt(healthInfo[3]);
+						System.out.println("You need " + temp + " more hours exercise to reach your goal for exercise.");
+					}
+					else {
+						System.out.println("Congratulations, you have reached your daily on exercise!");
+					}
+					break;
+				case "alcohol":
+					// alcohol
+					if(Integer.parseInt(healthInfo[4]) > Integer.parseInt(goals[3])) {
+						achieveAllGoals = false;
+						temp = Integer.parseInt(healthInfo[4]) - Integer.parseInt(goals[3]);
+						System.out.println("You need to drink " + temp + " less cups of alcohol to reach your goal for alcohol.");
+					}
+					else {
+						System.out.println("Congratulations, you have reached your daily on alcohol!");
+					}
+					break;
+				case "sleep":
+					// sleep
+					if(Integer.parseInt(healthInfo[5]) < Integer.parseInt(goals[4])) {
+						achieveAllGoals = false;
+						temp = Integer.parseInt(goals[4]) - Integer.parseInt(healthInfo[5]);
+						System.out.println("You need " + temp + " more hours of sleep to reach your goal for sleep quality.");
+					}
+					else {
+						System.out.println("Congratulations, you have reached your daily on sleep!");
+					}
+					break;
+				case "fruit&veggie":
+					// fruit & veg
+					if(Integer.parseInt(healthInfo[6]) < Integer.parseInt(goals[5])) {
+						achieveAllGoals = false;
+						temp = Integer.parseInt(goals[5]) - Integer.parseInt(healthInfo[6]);
+						System.out.println("You need " + temp + " more servings fruit & veg to reach your goal for fruit & veg.");
+					}
+					else {
+						System.out.println("Congratulations, you have reached your daily on fruit&veggie!");
+					}
+					break;
+				case "calorie":
+					// calorie
+					if(Integer.parseInt(healthInfo[7]) > Integer.parseInt(goals[6])) {
+						achieveAllGoals = false;
+						temp = Integer.parseInt(healthInfo[7]) - Integer.parseInt(goals[6]);
+						System.out.println("You need to take " + temp + " less calories to reach your goal for calorie.");
+					}
+					else {
+						System.out.println("Congratulations, you have reached your daily on calorie!");
+					}
+					break;
+				case "smoking":
+					// smoking
+					if(Integer.parseInt(healthInfo[8]) > Integer.parseInt(goals[7])) {
+						achieveAllGoals = false;
+						temp = Integer.parseInt(healthInfo[8]) - Integer.parseInt(goals[7]);
+						System.out.println("You need to smoke " + temp + " less cigarettes to reach your goal for smoking.");
+					}
+					else {
+						System.out.println("Congratulations, you have reached your daily on smoking!");
+					}
+					break;
 			}
 			
-			// Exercise
-			if(Integer.parseInt(healthInfo[3]) < Integer.parseInt(goals[2])) {
-				achieveAllGoals = false;
-				temp = Integer.parseInt(goals[2]) - Integer.parseInt(healthInfo[3]);
-				System.out.println("You need " + temp + " more hours exercise to reach your goal for exercise.");
-			}
-			
-			// alcohol
-			if(Integer.parseInt(healthInfo[4]) > Integer.parseInt(goals[3])) {
-				achieveAllGoals = false;
-				temp = Integer.parseInt(healthInfo[4]) - Integer.parseInt(goals[3]);
-				System.out.println("You need to drink " + temp + " less cups of alcohol to reach your goal for alcohol.");
-			}
-			
-			// sleep
-			if(Integer.parseInt(healthInfo[5]) < Integer.parseInt(goals[4])) {
-				achieveAllGoals = false;
-				temp = Integer.parseInt(goals[4]) - Integer.parseInt(healthInfo[5]);
-				System.out.println("You need " + temp + " more hours of sleep to reach your goal for sleep quality.");
-			}
-			
-			// fruit & veg
-			if(Integer.parseInt(healthInfo[6]) < Integer.parseInt(goals[5])) {
-				achieveAllGoals = false;
-				temp = Integer.parseInt(goals[5]) - Integer.parseInt(healthInfo[6]);
-				System.out.println("You need " + temp + " more servings fruit & veg to reach your goal for fruit & veg.");
-			}
-			
-			// calorie
-			if(Integer.parseInt(healthInfo[7]) > Integer.parseInt(goals[6])) {
-				achieveAllGoals = false;
-				temp = Integer.parseInt(healthInfo[7]) - Integer.parseInt(goals[6]);
-				System.out.println("You need to take " + temp + " less calories to reach your goal for calorie.");
-			}
-			
-			// smoking
-			if(Integer.parseInt(healthInfo[8]) > Integer.parseInt(goals[7])) {
-				achieveAllGoals = false;
-				temp = Integer.parseInt(healthInfo[8]) - Integer.parseInt(goals[7]);
-				System.out.println("You need to smoke " + temp + " less cigarettes to reach your goal for smoking.");
-			}
-			
-			if(achieveAllGoals) {
-				System.out.println("Congratulations, you have reached all your daily goals!");
-			}
+//			if(achieveAllGoals) {
+//				System.out.println("Congratulations, you have reached all your daily goals!");
+//			}
 			
 		}
 		
