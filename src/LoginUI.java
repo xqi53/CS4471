@@ -224,7 +224,6 @@ public class LoginUI {
 				if(credMan.verifyUser(username, password))
 				{
 					System.out.println("Successful User Login.");
-//					NOTE: UNCOMMENT THESE TWO LINES AND PROPERLY ATTACH THEM TO THE USER MAIN MENU WHEN CREATED, DELETE THIS AFTER
 					UserMainMenu mainUI = new UserMainMenu(username);
 					mainUI.mainMenu();
 				}

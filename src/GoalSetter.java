@@ -19,7 +19,7 @@ public class GoalSetter {
 	
 	private File userGoalFile;
 	private String[] useGoal;
-	private String[] categoryList = {"hydration", "exercise", "alcohol", "sleep", "fruit&veggie", "calorie", "smoking"};
+	private String[] categoryList = {"Hydration", "Exercise", "Alcohol intake", "Sleep quality", "Fruit and vegetable intake", "Calorie intake", "Smoking"};
 	private String input = "bobo,Hydration,30"; 
 	
 	/** 
@@ -37,7 +37,7 @@ public class GoalSetter {
 			String sNumber = Float.toString(number);
 			String[] inputArray = {username, category, sNumber};
 			Scanner sc;
-			
+				
 			sc = new Scanner(userGoalFile);
 			String line;
 			
@@ -54,6 +54,7 @@ public class GoalSetter {
 					
 					// Checks the position of user selected category in a line (i.e., hydration is a second value in a line).
 					int categoryIndex = Arrays.asList(categoryList).indexOf(inputArray[1])+1;
+					
 					// Finds the user that wants to set goal.
 					if(useGoal[0].equals(inputArray[0]))
 					{
