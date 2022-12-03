@@ -1,4 +1,3 @@
-
 // Imports the necessary libraries
 import java.util.Scanner;
 import java.io.BufferedWriter;
